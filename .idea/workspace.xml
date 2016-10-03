@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="10469766-f70b-47e3-bab4-632fdebc0ae8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/grayscale.css" afterPath="$PROJECT_DIR$/sass/grayscale.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/grayscale.scss" afterPath="$PROJECT_DIR$/sass/grayscale.scss" />
     </list>
     <ignored path="degtor.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5539216">
-              <caret line="95" column="116" selection-start-line="95" selection-start-column="116" selection-end-line="95" selection-end-column="116" />
+            <state vertical-scroll-proportion="-8.791667">
+              <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grayscale.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="grayscale.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sass/grayscale.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.551282">
-              <caret line="346" column="1" selection-start-line="346" selection-start-column="1" selection-end-line="346" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.7033898">
+              <caret line="343" column="16" selection-start-line="343" selection-start-column="16" selection-end-line="343" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -72,8 +73,8 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/web-api-auth-examples/authorization_code/public/index.html" />
         <option value="$PROJECT_DIR$/web-api-auth-examples/authorization_code/app.js" />
-        <option value="$PROJECT_DIR$/sass/grayscale.scss" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/sass/grayscale.scss" />
       </list>
     </option>
   </component>
@@ -299,18 +300,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sass/grayscale.scss">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.551282">
-          <caret line="346" column="1" selection-start-line="346" selection-start-column="1" selection-end-line="346" selection-end-column="1" />
+        <state vertical-scroll-proportion="-8.791667">
+          <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/sass/grayscale.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5539216">
-          <caret line="95" column="116" selection-start-line="95" selection-start-column="116" selection-end-line="95" selection-end-column="116" />
+        <state vertical-scroll-proportion="0.7033898">
+          <caret line="343" column="16" selection-start-line="343" selection-start-column="16" selection-end-line="343" selection-end-column="16" />
           <folding />
         </state>
       </provider>
