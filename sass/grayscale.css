@@ -7,7 +7,7 @@ Error: Invalid CSS after "...m center scroll": expected "{", was ";"
 341: }
 342: 
 343: #about {
-344:     background-image: {url('../img/eye.png') no-repeat bottom center scroll;
+344:     background: {url('../img/eye.png') no-repeat bottom center scroll;
 345:     }
 346: }
 
@@ -53,4 +53,4 @@ grayscale.scss:344
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...m center scroll\": expected \"{\", was \";\"\A         on line 344 of grayscale.scss\A \A 339: body {\A 340:     -webkit-tap-highlight-color: rgba(white, 0.2);\A 341: }\A 342: \A 343: #about {\A 344:     background-image: {url('../img/eye.png') no-repeat bottom center scroll;\A 345:     }\A 346: }"; }
+  content: "Error: Invalid CSS after \"...m center scroll\": expected \"{\", was \";\"\A         on line 344 of grayscale.scss\A \A 339: body {\A 340:     -webkit-tap-highlight-color: rgba(white, 0.2);\A 341: }\A 342: \A 343: #about {\A 344:     background: {url('../img/eye.png') no-repeat bottom center scroll;\A 345:     }\A 346: }"; }

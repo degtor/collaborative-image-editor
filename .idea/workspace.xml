@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10469766-f70b-47e3-bab4-632fdebc0ae8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/eye.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/grayscale.css" afterPath="$PROJECT_DIR$/sass/grayscale.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/grayscale.scss" afterPath="$PROJECT_DIR$/sass/grayscale.scss" />
     </list>
     <ignored path="degtor.github.io.iws" />
@@ -40,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/sass/grayscale.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.71428573">
-              <caret line="343" column="75" selection-start-line="343" selection-start-column="75" selection-end-line="343" selection-end-column="75" />
+              <caret line="343" column="14" selection-start-line="343" selection-start-column="14" selection-end-line="343" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -312,7 +311,7 @@
     <entry file="file://$PROJECT_DIR$/sass/grayscale.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71428573">
-          <caret line="343" column="75" selection-start-line="343" selection-start-column="75" selection-end-line="343" selection-end-column="75" />
+          <caret line="343" column="14" selection-start-line="343" selection-start-column="14" selection-end-line="343" selection-end-column="14" />
           <folding />
         </state>
       </provider>
