@@ -174,8 +174,7 @@ a {
     -moz-transform: scale(1);
     transform: scale(1); } }
 .content-section {
-  padding-top: 100px;
-  background: url("../img/eye.png") no-repeat bottom center scroll; }
+  padding-top: 100px; }
 
 .download-section {
   width: 100%;
@@ -258,5 +257,10 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
+
+.about-eye {
+  background: url("../img/eye.png") no-repeat bottom center scroll;
+  width: 500px;
+  height: 500px; }
 
 /*# sourceMappingURL=grayscale.css.map */
