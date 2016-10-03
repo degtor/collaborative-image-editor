@@ -339,3 +339,8 @@ img::-moz-selection {
 body {
     -webkit-tap-highlight-color: rgba(white, 0.2);
 }
+
+#about {
+    background-image: {url('../img/eye.png') no-repeat bottom center scroll;
+    }
+}

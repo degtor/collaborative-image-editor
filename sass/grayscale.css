@@ -1,0 +1,56 @@
+/*
+Error: Invalid CSS after "...m center scroll": expected "{", was ";"
+        on line 344 of grayscale.scss
+
+339: body {
+340:     -webkit-tap-highlight-color: rgba(white, 0.2);
+341: }
+342: 
+343: #about {
+344:     background-image: {url('../img/eye.png') no-repeat bottom center scroll;
+345:     }
+346: }
+
+Backtrace:
+grayscale.scss:344
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:1163:in `expected'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:1099:in `expected'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:1094:in `tok!'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:641:in `block'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:661:in `block_child'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:650:in `block_contents'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:642:in `block'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:883:in `nested_properties!'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:786:in `try_declaration'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:696:in `declaration_or_ruleset'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:661:in `block_child'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:650:in `block_contents'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:642:in `block'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:635:in `ruleset'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:660:in `block_child'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:653:in `block_contents'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/scss/parser.rb:42:in `parse'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/engine.rb:393:in `_to_tree'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/exec/sass_scss.rb:329:in `watch_or_update'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/exec/sass_scss.rb:50:in `process_result'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/exec/base.rb:40:in `parse'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/lib/sass/exec/base.rb:19:in `parse!'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/sass-3.4.1/bin/scss:13:in `<top (required)>'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/bin/scss:23:in `load'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/bin/scss:23:in `<main>'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/bin/ruby_executable_hooks:15:in `eval'
+/Users/viktorgustafsson/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...m center scroll\": expected \"{\", was \";\"\A         on line 344 of grayscale.scss\A \A 339: body {\A 340:     -webkit-tap-highlight-color: rgba(white, 0.2);\A 341: }\A 342: \A 343: #about {\A 344:     background-image: {url('../img/eye.png') no-repeat bottom center scroll;\A 345:     }\A 346: }"; }
