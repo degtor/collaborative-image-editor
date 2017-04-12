@@ -116,7 +116,7 @@ function draw(topo, brushSelected) {
       })
       .on("mouseout",  function(d,i) {
         tooltip.classed("hidden", true);
-      })c
+      })
 	  .on("click", function(d, i) {
 		  if (f < 6) {
 		  	f = f + 1;
@@ -124,6 +124,7 @@ function draw(topo, brushSelected) {
 			  f = 0;
 		  }
 
+		  console.log(f);
 	      var mouse = d3.mouse(worldSvg.node()).map( function(d) { return parseInt(d); } );
 	  
 		  var EconomyDataFiles = ["totalgdp.csv", "AvGdpInc.csv", "GroCapInv.csv", "inflationSum.csv", "industryAvg.csv", "taxrev.csv", "tradebal.csv"]
