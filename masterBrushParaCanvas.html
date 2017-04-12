@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>The search for happiness</title>
+    <style type="text/css">
+
+svg {
+  font: 10px sans-serif;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#chart {
+  position: relative;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  text-shadow: 0 1px 0 #fff;
+}
+
+.country:hover{
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+.text{
+  font-size:10px;
+  text-transform:capitalize;
+}
+#container {
+  margin:10px 10%;
+  height:100%;
+  border:solid #000;
+}
+.hidden { 
+  display: none; 
+}
+
+#dims {
+  position:relative;
+  z-index:999;
+}
+
+div.tooltip {
+  color: #222; 
+  background: #fff; 
+  padding: .5em; 
+  text-shadow: #f5f5f5 0 1px 0;
+  border-radius: 2px; 
+  box-shadow: 0px 0px 2px 0px #a6a6a6; 
+  opacity: 0.9; 
+  position: absolute;
+}
+.graticule {
+  fill: none;
+  stroke: #bbb;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+.equator {
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+.world {
+  top:600px;
+}
+
+p {
+  font-size:12px;
+  margin:0;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="chart">
+      <svg id="dims"></svg>
+      <canvas id="foreground"></canvas>
+    </div>
+    <div id="container"></div>
+    <h2>Instructions</h2>
+    <p>Based on: https://bl.ocks.org/mbostock/4180634 and http://bl.ocks.org/syntagmatic/2411910</p>
+    <br>
+    <p>- Click-hold and drag on the axis to brush-select a data range</p>
+    <p>- Hover on a country to display economy data</p>
+    <p>- Click a country to switch economy data</p>
+    <p>- Scroll or double-click on the map to zoom on a region</p>
+    <p>- Click-hold and drag on map to change the map overview</p>
+    <br>
+    <p>All values in parallel coordinates are summed percentages from i.e "very happy" and "rather happy" responses from the survey. The economical data is fetched fom gapminder and averaged together to fit the time periods given from the WVS.</p>
+    <!-- Average variable!! -->
+    
+    <h3>Research Questions</h3>
+    <p>My questions of research are where do people consider themselves to be the happiest? When was this happening. What is the reason behind it? Are there other fundamental values that influence the feeling of happiness? How are macro economical qualities affecting these values? Is there any connection between economic stability and feeling of happiness?
+    <h3>Understanding of happiness (Analytic trail 1)</h3>
+    <p>Without any filtering, the parallel coordinates give a good overview of how most countries value the given factors. Family is almost always valued high, a bump for friends, a rise for leisure time and finally a significant drop in politics.</p>
+    <img width="800" height="400" src="4.png" />
+    <p>By brushing the "feeling of happiness" variable on the parallel coordinates diagram I can see links between each of the qualitative values as well as the time period. </p>
+    <img src="1.png" />
+    <img width="800" height="400" src="2.png" />
+    <p>With the overall range of "importance politics" being quite low, a pattern with the countries with highest feeling of happiness can be linked to low values of important politics too</p>
+    <img width="800" height="400" src="3.png" />
+    <p>
+    By brushing and comparing these axes I can get a feeling of what each individual country value in terms of important fundamental values in society. </p>
+    <h3>Macro economical effects on happiness/society values (Analytic trail 2)</h3>
+    <p>While brushing the parallel coordinate axes, the corresponding countries are displayed on the world map in the same color and non-selected ones filtered out.  </p>
+    <img width="800" height="400" src="5.png" />
+    <p>Hovering on each country a tooltip is displayed with economy statistics.</p>
+    <img width="400px" heigh="200px" src="6.png" />
+    <p>By clicking on the country I can toggle between 7 different macro economical statistics.</p>
+    <img width="400px" heigh="200px" src="7.png" />
+    <p>Zooming(MouseScroll or double-click) and dragging the world map is available to make sure the best overview is possible for analysis.</p>
+    <img width="400px" heigh="200px" src="8.png" />
+    <img width="400px" heigh="200px" src="9.png" />
+    <p>By using the tools to compare Malaysia(highest happiness reported) and Egypt (lowest) we can see that for example their total GDP is very much the same but income per person is almost 4 times higher. With almost similar tax returns too, this could be seen as higher income and more money to the households would generate higher feeling of happiness. However, Egypt was also close to an area pre-arab spring which should be taken into account.  </p>
+    <h3>Reflections</h3>
+    <p>To answer my research questions fully more analysis and questioning should be regarded. It's a difficult topic but I think my tool can provide some overall insights of societal values and macro economic factors. I certainly learned a lot thinking and working with analytic trails in this way and together with D3 it was really fun once I got the hang of it. The task seemed a bit overwhelming at first when starting to research the data but once I got my hands dirty with excel and text-manipulation it wasn't so bad.</p>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js"></script>
+    <script src="http://d3js.org/topojson.v0.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/topojson.v1.min.js"></script>
+    <script src="js/Worldmap.js"></script>
+    <script src="js/parallel.js"></script>
+  </body>
+</html>
