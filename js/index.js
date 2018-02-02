@@ -68,7 +68,7 @@ function resetCss(e){
 
 $("#reset").click(function() {
 	//$("#imageEditor").reset();
-	resetCss();
+	resetCss(0);
 })
 
 
