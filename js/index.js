@@ -41,9 +41,6 @@ function editImage() {
     '%) sepia(' + sepia + '%)'
   );
   
-	if (TogetherJS.running) {
-		TogetherJS.send({type: "editImage", grayscale: gs});
-	}
 }
 
 //When sliders change image will be updated via editImage() function
@@ -51,6 +48,11 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
 $('#imageEditor').on('reset', function () {
+	var resetButton = $("input[type=reset]").val();
+	if (TogetherJS.running) {
+		TogetherJS.send({type: "reset", reset: resetButton});
+	}
+	
 	setTimeout(function() {
 		editImage();
 	}, 0);
@@ -83,12 +85,11 @@ TogetherJS.hub.on("sendImage", function (msg) {
     addImage(msg.image);
 });
 
-TogetherJS.hub.on("editImage", function (msg) {
+TogetherJS.hub.on("reset", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	editImage(msg.grayscale);
-	console.log(msg.grayscale);
+	editImage();
 });
 
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
@@ -96,11 +97,11 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
-	var grayscale = $("#gs").val();
+	var reset = $("#reset").val();
     TogetherJS.send({
         type: "init",
         image: image,
-		grayscale: grayscale
+		reset: reset
     });
 });
 
@@ -111,5 +112,5 @@ TogetherJS.hub.on("init", function (msg) {
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
-		editImage(msg.grayscale);
+		editImage();
 });
