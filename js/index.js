@@ -40,6 +40,10 @@ function editImage() {
     '%) saturate(' + saturate +
     '%) sepia(' + sepia + '%)'
   );
+  
+	if (TogetherJS.running) {
+		TogetherJS.send({type: "editImage", grayscale: gs});
+	}
 }
 
 //When sliders change image will be updated via editImage() function
@@ -72,8 +76,6 @@ function addImage(e) {
   }
 }
 
-
-
 TogetherJS.hub.on("sendImage", function (msg) {
     if (! msg.sameUrl) {
         return;
@@ -81,14 +83,23 @@ TogetherJS.hub.on("sendImage", function (msg) {
     addImage(msg.image);
 });
 
+TogetherJS.hub.on("editImage", function (msg) {
+    if (! msg.sameUrl) {
+        return;
+    }
+	editImage(msg.grayscale);
+});
+
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
     var image = $("#imgUrl").val();
+	var grayscale = $("#gs").val();
     TogetherJS.send({
         type: "init",
-        image: image
+        image: image,
+		grayscale: grayscale
     });
 });
 
