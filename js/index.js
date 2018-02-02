@@ -77,14 +77,14 @@ TogetherJS.hub.on("sendImage", function (msg) {
     addImage(msg.image);
 });
 
-TogetherJS.hub.on("gs", function (msg) {
-    if (! msg.sameUrl) {
-        return;
-    }
-	var gs = $("#gs").val();
-	gs = msg.gs; // grayscale
-    editImage();
-});
+// TogetherJS.hub.on("gs", function (msg) {
+//     if (! msg.sameUrl) {
+//         return;
+//     }
+// 	var gs = $("#gs").val();
+// 	gs = msg.gs; // grayscale
+//     editImage();
+// });
 
 
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
@@ -95,8 +95,8 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
 	var gs = $("#gs").val();
     TogetherJS.send({
         type: "init",
-        image: image,
-		gs: gs
+        image: image
+		//gs: gs
     });
 });
 
@@ -104,8 +104,8 @@ TogetherJS.hub.on("init", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	var gs = $("#gs").val();
-	gs = msg.gs;
+	// var gs = $("#gs").val();
+	// gs = msg.gs;
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
