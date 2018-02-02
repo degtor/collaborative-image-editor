@@ -81,7 +81,8 @@ TogetherJS.hub.on("gs", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	$("#gs").val() = msg.gs; // grayscale
+	var gs = $("#gs").val();
+	gs = msg.gs; // grayscale
     editImage();
 });
 
