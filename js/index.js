@@ -72,6 +72,8 @@ function addImage(e) {
   }
 }
 
+
+
 TogetherJS.hub.on("sendImage", function (msg) {
     if (! msg.sameUrl) {
         return;
