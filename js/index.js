@@ -58,28 +58,19 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 // 	}, 0);
 // });
 
-function resetCss(e){
-	var theGS = $("#gs").val = 0;
-	e.preventDefault();	
-	if (TogetherJS.running) {
-  	TogetherJS.send({type: "reset", gs: theGS});
-  }
-}
-
 $("#reset").click(function() {
-	//$("#imageEditor").reset();
-	resetCss(0);
+	$("#imageEditor").reset();
 })
 
 
 
-TogetherJS.hub.on("message-type", function (msg) {
-  if (! msg.sameUrl) {
-    // Usually you'll test for this to discard messages that came
-    // from a user at a different page
-    return;
-  }
-});
+// TogetherJS.hub.on("message-type", function (msg) {
+//   if (! msg.sameUrl) {
+//     // Usually you'll test for this to discard messages that came
+//     // from a user at a different page
+//     return;
+//   }
+// });
 
 // adding an image via url box
 function addImage(e) {
@@ -100,12 +91,6 @@ TogetherJS.hub.on("sendImage", function (msg) {
     addImage(msg.image);
 });
 
-TogetherJS.hub.on("reset", function (msg) {
-    if (! msg.sameUrl) {
-        return;
-    }
-	resetCss(msg.gs);
-});
 
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
     if (! msg.sameUrl) {
@@ -115,8 +100,7 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
 	var gs = $("#gs").val();
     TogetherJS.send({
         type: "init",
-        image: image,
-		gs: gs
+        image: image
     });
 });
 
@@ -127,5 +111,4 @@ TogetherJS.hub.on("init", function (msg) {
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
-		resetCss(msg.gs);
 });
