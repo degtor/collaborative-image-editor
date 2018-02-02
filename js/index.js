@@ -60,6 +60,7 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 
 $("#reset").click(function() {
 	$("#imageEditor").reset();
+	editImage();
 })
 
 
