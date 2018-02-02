@@ -47,16 +47,20 @@ function editImage() {
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
-$('#imageEditor').on('reset', function () {
-	var resetButton = $("input[type=reset]").val();
-	if (TogetherJS.running) {
-		TogetherJS.send({type: "reset", reset: resetButton});
-	}
-	
-	setTimeout(function() {
-		editImage();
-	}, 0);
-});
+// $('#imageEditor').on('reset', function () {
+// 	var resetButton = $("input[type=reset]").val();
+// 	if (TogetherJS.running) {
+// 		TogetherJS.send({type: "reset", reset: resetButton});
+// 	}
+//
+// 	setTimeout(function() {
+// 		editImage();
+// 	}, 0);
+// });
+
+$("#reset").click(function() {
+	$("#imageEditor").reset();
+})
 
 TogetherJS.hub.on("message-type", function (msg) {
   if (! msg.sameUrl) {
