@@ -97,7 +97,7 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
-	var reset = $("#reset").val();
+	var reset = $("input[type=reset]").val();
     TogetherJS.send({
         type: "init",
         image: image,
