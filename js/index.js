@@ -59,7 +59,8 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 // });
 
 $("#reset").click(function() {
-	$("#imageEditor").reset();
+	//$("#imageEditor").reset();
+	$("#gs").val = 0;
 })
 
 TogetherJS.hub.on("message-type", function (msg) {
