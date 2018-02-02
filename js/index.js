@@ -16,6 +16,11 @@ function editImage() {
 	var invert = $("#invert").val(); //invert
 	var saturate = $("#saturate").val(); //saturate
 	var sepia = $("#sepia").val(); //sepia
+	
+	if (TogetherJS.running) {
+  		TogetherJS.send({type: "gs", grayscale: gs});
+	}
+	
 
 	$("#imageContainer img").css(
     "filter", 'grayscale(' + gs+
@@ -47,33 +52,11 @@ function editImage() {
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
-// $('#imageEditor').on('reset', function () {
-// 	var resetButton = $("input[type=reset]").val();
-// 	if (TogetherJS.running) {
-// 		TogetherJS.send({type: "reset", reset: resetButton});
-// 	}
-//
-// 	setTimeout(function() {
-// 		editImage();
-// 	}, 0);
-// });
-
-$("#reset").click(function() {
-	$("#imageEditor").reset();
-	setTimeout(function() {
-	 		editImage();
-	}, 0);
-})
-
-
-
-// TogetherJS.hub.on("message-type", function (msg) {
-//   if (! msg.sameUrl) {
-//     // Usually you'll test for this to discard messages that came
-//     // from a user at a different page
-//     return;
-//   }
-// });
+ $('#imageEditor').on('reset', function () {
+ 	setTimeout(function() {
+ 		editImage();
+ 	}, 0);
+ });
 
 // adding an image via url box
 function addImage(e) {
@@ -83,7 +66,7 @@ function addImage(e) {
 	}
 	e.preventDefault();	
 	if (TogetherJS.running) {
-  	TogetherJS.send({type: "sendImage", image: imgUrl});
+  		TogetherJS.send({type: "sendImage", image: imgUrl});
   }
 }
 
@@ -92,6 +75,14 @@ TogetherJS.hub.on("sendImage", function (msg) {
         return;
     }
     addImage(msg.image);
+});
+
+TogetherJS.hub.on("gs", function (msg) {
+    if (! msg.sameUrl) {
+        return;
+    }
+	$("#gs").val() = msg.gs; // grayscale
+    editImage();
 });
 
 
@@ -103,7 +94,8 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
 	var gs = $("#gs").val();
     TogetherJS.send({
         type: "init",
-        image: image
+        image: image,
+		gs: gs
     });
 });
 
@@ -111,6 +103,8 @@ TogetherJS.hub.on("init", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
+	var gs = $("#gs").val();
+	gs = msg.gs;
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
