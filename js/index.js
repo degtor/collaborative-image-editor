@@ -58,10 +58,20 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 // 	}, 0);
 // });
 
+function resetCss(e){
+	var theGS = $("#gs").val = 0;
+	e.preventDefault();	
+	if (TogetherJS.running) {
+  	TogetherJS.send({type: "reset", gs: theGS});
+  }
+}
+
 $("#reset").click(function() {
 	//$("#imageEditor").reset();
-	$("#gs").val = 0;
+	resetCss();
 })
+
+
 
 TogetherJS.hub.on("message-type", function (msg) {
   if (! msg.sameUrl) {
@@ -94,7 +104,7 @@ TogetherJS.hub.on("reset", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	editImage();
+	resetCss(msg.gs);
 });
 
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
@@ -102,11 +112,11 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
-	var reset = $("input[type=reset]").val();
+	var gs = $("#gs").val();
     TogetherJS.send({
         type: "init",
         image: image,
-		reset: reset
+		gs: gs
     });
 });
 
@@ -117,5 +127,5 @@ TogetherJS.hub.on("init", function (msg) {
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
-		editImage();
+		resetCss(msg.gs);
 });
