@@ -88,6 +88,7 @@ TogetherJS.hub.on("editImage", function (msg) {
         return;
     }
 	editImage(msg.grayscale);
+	console.log(msg.grayscale);
 });
 
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
@@ -110,4 +111,5 @@ TogetherJS.hub.on("init", function (msg) {
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
+		editImage(msg.grayscale);
 });
