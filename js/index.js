@@ -88,7 +88,6 @@ TogetherJS.hub.on("reset", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-    theTimeOutFunction(msg.theReset);
 });
 
 
@@ -102,7 +101,6 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
     TogetherJS.send({
         type: "init",
         image: image
-		theReset: reset
     });
 });
 
