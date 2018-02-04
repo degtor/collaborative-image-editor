@@ -49,12 +49,6 @@ function editImage() {
 }
 
 var theTimeOutFunction = function () {
-	var reset = $("#imageEditor");
-	console.log("TEST");
-	console.log(this);
-	if (TogetherJS.running) {
-  		TogetherJS.send({type: "sendImage", theReset: reset});
-  }
 	setTimeout(function() {
 		editImage();
 	}, 0);
@@ -64,7 +58,7 @@ var theTimeOutFunction = function () {
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
-$('#imageEditor').on('reset', theTimeOutFunction);
+$('#imageEditor').on('reset', theTimeOutFunction());
 
 // adding an image via url box
 function addImage(e) {
@@ -87,16 +81,16 @@ TogetherJS.hub.on("sendImage", function (msg) {
         return;
     }
     addImage(msg.image);
+	console.log("HEJ");
 });
 
-// TogetherJS.hub.on("gs", function (msg) {
-//     if (! msg.sameUrl) {
-//         return;
-//     }
-// 	var gs = $("#gs").val();
-// 	gs = msg.gs; // grayscale
-//     editImage();
-// });
+TogetherJS.hub.on("reset", function (msg) {
+    if (! msg.sameUrl) {
+        return;
+    }
+    theTimeOutFunction(msg.theReset);
+});
+
 
 //Send the image to the other clients
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
@@ -104,11 +98,11 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
-	var gs = $("#gs").val();
+	var reset = $("#imageEditor").reset();
     TogetherJS.send({
         type: "init",
         image: image
-		//gs: gs
+		theReset: reset
     });
 });
 
@@ -118,8 +112,6 @@ TogetherJS.hub.on("init", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	// var gs = $("#gs").val();
-	// gs = msg.gs;
     var image = new Image();
     image.src = msg.image;
 		addImage(image);
