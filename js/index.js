@@ -49,6 +49,12 @@ function editImage() {
 }
 
 var theTimeOutFunction = function () {
+	var reset = $("#imageEditor");
+	console.log("TEST");
+	console.log(this);
+	if (TogetherJS.running) {
+  		TogetherJS.send({type: "sendImage", theReset: reset});
+  }
 	setTimeout(function() {
 		editImage();
 	}, 0);
