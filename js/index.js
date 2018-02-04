@@ -16,11 +16,6 @@ function editImage() {
 	var invert = $("#invert").val(); //invert
 	var saturate = $("#saturate").val(); //saturate
 	var sepia = $("#sepia").val(); //sepia
-	
-	if (TogetherJS.running) {
-  		TogetherJS.send({type: "gs", grayscale: gs});
-	}
-	
 
 	$("#imageContainer img").css(
     "filter", 'grayscale(' + gs+
@@ -48,7 +43,20 @@ function editImage() {
   
 }
 
+function resetFunction(e) {
+	e.reset();
+	setTimeout(function() {
+		editImage();
+	}, 0);
+}
+
 var theTimeOutFunction = function () {
+	resetFunction($("#imageEditor"));
+	//Send the imgUrl to TogetherJS Server
+	if (TogetherJS.running) {
+  		TogetherJS.send({type: "reset", reset: $("#imageEditor")});
+  }
+	
 	setTimeout(function() {
 		editImage();
 	}, 0);
@@ -88,6 +96,7 @@ TogetherJS.hub.on("reset", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
+	resetFunction(msg.reset);
 });
 
 
@@ -97,10 +106,10 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
-	var reset = $("#imageEditor").reset();
     TogetherJS.send({
         type: "init",
-        image: image
+        image: image,
+		reset: reset
     });
 });
 
