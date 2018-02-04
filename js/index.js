@@ -119,7 +119,8 @@ $('#imageEditor').on('reset', function() {
 			setTimeout(function() {
 				editImage();
 			}, 0);
-  		});
+		}
+	});
   }
 	
 	setTimeout(function() {
