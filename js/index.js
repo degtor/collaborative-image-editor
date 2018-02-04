@@ -76,12 +76,12 @@ TogetherJS.hub.on("sendImage", function (msg) {
 	console.log("HEJ");
 });
 
-// TogetherJS.hub.on("reset", function (msg) {
-//     if (! msg.sameUrl) {
-//         return;
-//     }
-// 	resetFunction(msg.reset);
-// });
+TogetherJS.hub.on("resetta", function (msg) {
+    if (! msg.sameUrl) {
+        return;
+    }
+	msg.resetta;
+});
 
 
 //Send the image to the other clients
@@ -93,7 +93,8 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
 
     TogetherJS.send({
         type: "init",
-        image: image
+        image: image,
+		resetta: msg.resetta
     });
 });
 
@@ -113,6 +114,14 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
 $('#imageEditor').on('reset', function() {
+	if (TogetherJS.running) {
+  		TogetherJS.send({type: "resetta", resetta: function () {
+			setTimeout(function() {
+				editImage();
+			}, 0);
+  		});
+  }
+	
 	setTimeout(function() {
 		editImage();
 	}, 0);
