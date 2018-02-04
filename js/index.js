@@ -43,32 +43,28 @@ function editImage() {
   
 }
 
-function resetFunction(e) {
-	var form = e;
-	form.reset();
-	setTimeout(function() {
-		editImage();
-	}, 0);
-}
+// function resetFunction(e) {
+// 	var form = e;
+// 	form.reset();
+// 	setTimeout(function() {
+// 		editImage();
+// 	}, 0);
+// }
 
 var theTimeOutFunction = function () {
-	var form = $("#imageEditor");
-	resetFunction(form);
+	//var form = $("#imageEditor");
+	//resetFunction(form);
 	//Send the imgUrl to TogetherJS Server
-	if (TogetherJS.running) {
-  		TogetherJS.send({type: "reset", reset: form});
-  }
+	// if (TogetherJS.running) {
+	//   		TogetherJS.send({type: "reset", reset: form});
+	//   }
 	
 	setTimeout(function() {
 		editImage();
 	}, 0);
 }
 
-//When sliders change image will be updated via editImage() function
-$("input[type=range]").change(editImage).mousemove(editImage);
 
-// Reset sliders back to their original values on press of 'reset'
-$('#imageEditor').on('reset', theTimeOutFunction());
 
 // adding an image via url box
 function addImage(e) {
@@ -94,12 +90,12 @@ TogetherJS.hub.on("sendImage", function (msg) {
 	console.log("HEJ");
 });
 
-TogetherJS.hub.on("reset", function (msg) {
-    if (! msg.sameUrl) {
-        return;
-    }
-	resetFunction(msg.reset);
-});
+// TogetherJS.hub.on("reset", function (msg) {
+//     if (! msg.sameUrl) {
+//         return;
+//     }
+// 	resetFunction(msg.reset);
+// });
 
 
 //Send the image to the other clients
@@ -108,11 +104,10 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
-	var reset = $("#imageEditor");
+
     TogetherJS.send({
         type: "init",
-        image: image,
-		reset: reset
+        image: image
     });
 });
 
@@ -126,3 +121,9 @@ TogetherJS.hub.on("init", function (msg) {
     image.src = msg.image;
 		addImage(image);
 });
+
+//When sliders change image will be updated via editImage() function
+$("input[type=range]").change(editImage).mousemove(editImage);
+
+// Reset sliders back to their original values on press of 'reset'
+$('#imageEditor').on('reset', theTimeOutFunction());
