@@ -51,20 +51,6 @@ function editImage() {
 // 	}, 0);
 // }
 
-var theTimeOutFunction = function () {
-	//var form = $("#imageEditor");
-	//resetFunction(form);
-	//Send the imgUrl to TogetherJS Server
-	// if (TogetherJS.running) {
-	//   		TogetherJS.send({type: "reset", reset: form});
-	//   }
-	
-	setTimeout(function() {
-		editImage();
-	}, 0);
-}
-
-
 
 // adding an image via url box
 function addImage(e) {
@@ -126,4 +112,8 @@ TogetherJS.hub.on("init", function (msg) {
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
-$('#imageEditor').on('reset', theTimeOutFunction());
+$('#imageEditor').on('reset', function() {
+	setTimeout(function() {
+		editImage();
+	}, 0);
+});
