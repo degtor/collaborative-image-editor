@@ -44,17 +44,19 @@ function editImage() {
 }
 
 function resetFunction(e) {
-	e.reset();
+	var form = e;
+	form.reset();
 	setTimeout(function() {
 		editImage();
 	}, 0);
 }
 
 var theTimeOutFunction = function () {
-	resetFunction($("#imageEditor"));
+	var form = $("#imageEditor");
+	resetFunction($(form);
 	//Send the imgUrl to TogetherJS Server
 	if (TogetherJS.running) {
-  		TogetherJS.send({type: "reset", reset: $("#imageEditor")});
+  		TogetherJS.send({type: "reset", reset: form});
   }
 	
 	setTimeout(function() {
@@ -106,6 +108,7 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
         return;
     }
     var image = $("#imgUrl").val();
+	var reset = $("#imageEditor");
     TogetherJS.send({
         type: "init",
         image: image,
