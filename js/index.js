@@ -53,7 +53,7 @@ function resetFunction(e) {
 
 var theTimeOutFunction = function () {
 	var form = $("#imageEditor");
-	resetFunction($(form);
+	resetFunction(form);
 	//Send the imgUrl to TogetherJS Server
 	if (TogetherJS.running) {
   		TogetherJS.send({type: "reset", reset: form});
