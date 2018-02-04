@@ -48,15 +48,17 @@ function editImage() {
   
 }
 
+var theTimeOutFunction = function () {
+	setTimeout(function() {
+		editImage();
+	}, 0);
+}
+
 //When sliders change image will be updated via editImage() function
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
- $('#imageEditor').on('reset', function () {
- 	setTimeout(function() {
- 		editImage();
- 	}, 0);
- });
+$('#imageEditor').on('reset', theTimeOutFunction);
 
 // adding an image via url box
 function addImage(e) {
@@ -64,12 +66,16 @@ function addImage(e) {
 	if (imgUrl.length) {
 		$("#imageContainer img").attr("src", imgUrl);
 	}
+	
 	e.preventDefault();	
+	
+	//Send the imgUrl to TogetherJS Server
 	if (TogetherJS.running) {
   		TogetherJS.send({type: "sendImage", image: imgUrl});
   }
 }
 
+//Receive the imgUrl on the TJS-server
 TogetherJS.hub.on("sendImage", function (msg) {
     if (! msg.sameUrl) {
         return;
@@ -86,7 +92,7 @@ TogetherJS.hub.on("sendImage", function (msg) {
 //     editImage();
 // });
 
-
+//Send the image to the other clients
 TogetherJS.hub.on("togetherjs.hello", function (msg) {
     if (! msg.sameUrl) {
         return;
@@ -100,6 +106,8 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
     });
 });
 
+
+//if a new client joins the session, make sure it has the same image
 TogetherJS.hub.on("init", function (msg) {
     if (! msg.sameUrl) {
         return;
