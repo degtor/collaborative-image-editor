@@ -107,7 +107,9 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
 $('#resetButton').click(function() {
-	$("#imageEditor").reset();
+	var form = document.getElementById("imageEditor");
+	form.reset();
+	
 	if (TogetherJS.running) {
   		TogetherJS.send({type: "reseter"});
   	}
