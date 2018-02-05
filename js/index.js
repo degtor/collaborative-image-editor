@@ -97,7 +97,7 @@ TogetherJS.hub.on("reset", function (msg) {
         return;
     }
 	console.log(msg.form);
-	msg.form.reset();
+	//msg.form.reset();
 });
 
 //When sliders change image will be updated via editImage() function
