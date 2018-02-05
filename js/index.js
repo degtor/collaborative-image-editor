@@ -43,15 +43,6 @@ function editImage() {
   
 }
 
-// function resetFunction(e) {
-// 	var form = e;
-// 	form.reset();
-// 	setTimeout(function() {
-// 		editImage();
-// 	}, 0);
-// }
-
-
 // adding an image via url box
 function addImage(e) {
 	var imgUrl = $("#imgUrl").val();
@@ -73,14 +64,6 @@ TogetherJS.hub.on("sendImage", function (msg) {
         return;
     }
     addImage(msg.image);
-	console.log("HEJ");
-});
-
-TogetherJS.hub.on("resetta", function (msg) {
-    if (! msg.sameUrl) {
-        return;
-    }
-	msg.resetta;
 });
 
 
@@ -93,8 +76,7 @@ TogetherJS.hub.on("togetherjs.hello", function (msg) {
 
     TogetherJS.send({
         type: "init",
-        image: image,
-		resetta: msg.resetta
+        image: image
     });
 });
 
@@ -109,19 +91,22 @@ TogetherJS.hub.on("init", function (msg) {
 		addImage(image);
 });
 
+
+TogetherJS.hub.on("reset", function (msg) {
+    if (! msg.sameUrl) {
+        return;
+    }
+	$("#imageEditor").reset();
+});
+
 //When sliders change image will be updated via editImage() function
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
 $('#imageEditor').on('reset', function() {
 	if (TogetherJS.running) {
-  		TogetherJS.send({type: "resetta", resetta: function () {
-			setTimeout(function() {
-				editImage();
-			}, 0);
-		}
-	});
-  }
+  		TogetherJS.send({type: "reset"});
+  	}
 	
 	setTimeout(function() {
 		editImage();
