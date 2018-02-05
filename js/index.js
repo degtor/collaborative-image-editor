@@ -100,6 +100,10 @@ TogetherJS.hub.on("reseter", function (msg) {
 	console.log("SPAM?");
 	var form = document.getElementById("imageEditor");
 	form.reset();
+	
+	setTimeout(function() {
+		editImage();
+	}, 0);
 });
 
 //When sliders change image will be updated via editImage() function
