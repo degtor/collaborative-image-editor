@@ -106,8 +106,8 @@ TogetherJS.hub.on("reseter", function (msg) {
 $("input[type=range]").change(editImage).mousemove(editImage);
 
 // Reset sliders back to their original values on press of 'reset'
-$('#imageEditor').click(function() {
-	this.reset();
+$('#resetButton').click(function() {
+	$("#imageEditor").reset();
 	if (TogetherJS.running) {
   		TogetherJS.send({type: "reseter"});
   	}
