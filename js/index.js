@@ -96,7 +96,8 @@ TogetherJS.hub.on("reset", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	$("#imageEditor").reset();
+	console.log(msg.form);
+	msg.form.reset();
 });
 
 //When sliders change image will be updated via editImage() function
@@ -105,7 +106,7 @@ $("input[type=range]").change(editImage).mousemove(editImage);
 // Reset sliders back to their original values on press of 'reset'
 $('#imageEditor').on('reset', function() {
 	if (TogetherJS.running) {
-  		TogetherJS.send({type: "reset"});
+  		TogetherJS.send({type: "reset", form: this});
   	}
 	
 	setTimeout(function() {
