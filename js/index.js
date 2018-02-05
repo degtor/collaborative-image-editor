@@ -96,8 +96,8 @@ TogetherJS.hub.on("reseter", function (msg) {
     if (! msg.sameUrl) {
         return;
     }
-	var form = document.getElementById("imageEditor");
-	form.reset();
+	//var form = document.getElementById("imageEditor");
+	//form.reset();
 });
 
 //When sliders change image will be updated via editImage() function
