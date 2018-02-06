@@ -7,6 +7,7 @@ $("#urlBox").submit(addImage);
 
 // editing image via css properties
 function editImage(s) {
+			console.log("IN EDITIMAGE: " + s);
 			var imageToBeEdited = s.closest("div").id;
 			var imageNr = $(s.closest("div")).attr("imageNr");
 			console.log(imageNr);
@@ -204,6 +205,7 @@ function addImage(e) {
 						res.form = "imageEditor-" + i.toString();
 						pTag.appendChild(res);
 			}
+			e.preventDefault();
 			//Send the imgUrl to TogetherJS Server
 			if (TogetherJS.running) {
 						TogetherJS.send({ type: "sendImage", image: imgUrl });
@@ -246,13 +248,15 @@ TogetherJS.hub.on("reseter", function (msg) {
 						return;
 			}
 
-			var sendReset = msg.reset;
-			console.log(sendReset);
-			//var form = document.getElementById("imageEditor");
-			//form.reset();
+			var sendReset = msg.element;
+			var elementFinder = TogetherJS.require("elementFinder");
+			// If the element can't be found this will throw an exception:
+			var element = elementFinder.findElement(sendReset);
+			console.log("This is the send reset" + element);
+			console.log("This reset" + sendReset);
 
 			setTimeout(function () {
-						editImage(sendReset);
+						editImage(element);
 			}, 0);
 });
 
@@ -260,9 +264,14 @@ TogetherJS.hub.on("reseter", function (msg) {
 $(document).on("click", "input[type=reset]", function () {
 
 			var sendReset = this;
+			//console.log("OBS:" + sendReset);
 
 			if (TogetherJS.running) {
-						TogetherJS.send({ type: "reseter", reset: sendReset });
+						var elementFinder = TogetherJS.require("elementFinder");
+						var location = elementFinder.elementLocation(sendReset);
+
+						TogetherJS.send({ type: "reseter", element: location });
+						console.log("this is what is sent to TJS:" + location);
 			}
 
 			setTimeout(function () {
