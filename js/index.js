@@ -204,7 +204,6 @@ function addImage(e) {
 						res.form = "imageEditor-" + i.toString();
 						pTag.appendChild(res);
 			}
-			e.preventDefault();
 			//Send the imgUrl to TogetherJS Server
 			if (TogetherJS.running) {
 						TogetherJS.send({ type: "sendImage", image: imgUrl });
