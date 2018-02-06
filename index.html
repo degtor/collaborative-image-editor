@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Image Editor with CSS Filters and jQuery</title>
+  <title>TesterDrag</title>
   
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
   
       <link rel="stylesheet" href="css/style.css">
 
@@ -15,8 +16,6 @@
 <body>
 
   <h1>Image Editor with CSS Filters and jQuery</h1>
-<button onclick="TogetherJS(this); return false;">Start TogetherJS</button> 
-
 		
 <!--Form for collecting image URL -->
 <form id="urlBox" class="center">
@@ -26,68 +25,14 @@
 
 <hr color="grey">
 
-<!--Controls for CSS filters via range input-->
-<div class="sliders">
-  <form id="imageEditor">
-    <p>
-      <label for="gs">Grayscale</label>
-      <input id="gs" name="gs" type="range" min="0" max="100" value="0">
-    </p>
-
-    <p>
-      <label for="blur">Blur</label>
-      <input id="blur" name="blur" type="range" min="0" max="10" value="0">
-    </p>
-
-    <p>
-      <label for="br">Exposure</label>
-      <input id="br" name="br" type="range" min="0" max="200" value="100">
-    </p>
-
-    <p>
-      <label for="ct">Contrast</label>
-      <input id="ct" name="ct" type="range" min="0" max="200" value="100">
-    </p>
-
-    <p>
-      <label for="huer">Hue Rotate</label>
-      <input id="huer" name="huer" type="range" min="0" max="360" value="0">
-    </p>
-
-    <p>
-      <label for="opacity">Opacity</label>
-      <input id="opacity" name="opacity" type="range" min="0" max="100" value="100">
-    </p>
-
-    <p>
-      <label for="invert">Invert</label>
-      <input id="invert" name="invert" type="range" min="0" max="100" value="0">
-    </p>
-
-    <p>
-      <label for="saturate">Saturate</label>
-      <input id="saturate" name="saturate" type="range" min="0" max="500" value="100">
-    </p>
-
-    <p>
-      <label for="sepia">Sepia</label>
-      <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
-    </p>
-
-    <input type="reset" id="resetButton" form="imageEditor" value="Reset" />
-
-  </form>
-</div>	
-
-<!--container where image will be loaded-->
+<!--container where images will be loaded-->
 <div id="imageContainer" class="center">
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/stadium.jpg">
 </div>
-
-<p class="p">Demo by Vikas Lalwani. <a href="http://www.sitepoint.com/build-simple-image-editor-with-css-filters-jquery" target="_blank">See article</a>.</p>
-
+<!--  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/stadium.jpg"> -->
 <script src="https://togetherjs.com/togetherjs-min.js"></script>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
+<button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
   
 
