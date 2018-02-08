@@ -256,7 +256,8 @@ $(document).on("click", ".removeButton", function() {
 			TogetherJS.send({type: "destroyImage", destroyI: true, element: location});
   	}
 	
-		//$("#"+$(this)[0].id).remove();
+		$("#"+$(this)[0].id).remove();
+		return true;
 		//$(t).remove();
 	} else {
 				if (TogetherJS.running) {
