@@ -43,7 +43,7 @@ function destroyImage(t) {
 						$("#" + $(t)[0].id).remove();
 						$(t).remove();
 			} else {
-						console.log(this);
+				return false;
 			}
 }
 
