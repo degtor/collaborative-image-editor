@@ -32,7 +32,6 @@ function editImage(s, i) {
 }
 
 function destroyImage(t) {
-	t.preventDefault();
 			if (confirm("Are you sure?")) {
 						if (TogetherJS.running) {
 									var elementFinder = TogetherJS.require("elementFinder");
@@ -44,6 +43,7 @@ function destroyImage(t) {
 						$("#" + $(t)[0].id).remove();
 						$(t).remove();
 			} else {
+				t.preventDefault();
 				return false;
 			}
 }
