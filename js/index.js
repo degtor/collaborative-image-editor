@@ -349,7 +349,7 @@ $(document).on("click", "input[type=reset]", function() {
 });
 
 $('#save_image_locally').click(function(){
-	html2canvas($('#imageContainer')).then(function (canvas) {
+	html2canvas($('#imageContainer')[0]).then(function (canvas) {
 				var a = document.createElement('a');
 		        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
 		        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
