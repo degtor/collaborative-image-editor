@@ -32,6 +32,7 @@ function editImage(s, i) {
 }
 
 function destroyImage(t) {
+	t.preventDefault();
 			if (confirm("Are you sure?")) {
 						if (TogetherJS.running) {
 									var elementFinder = TogetherJS.require("elementFinder");
