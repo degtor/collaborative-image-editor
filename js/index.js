@@ -74,6 +74,7 @@ function addImage(e) {
 			imgWrap.appendChild(sliders);
 		
 		var imgOne = document.createElement("img");
+		imgOne.setAttribute("crossOrigin", "Anonymous");
 		imgOne.setAttribute("src", imgUrl);
 		imgOne.setAttribute("class", "image-" + i.toString());
 		sliders.appendChild(imgOne);
