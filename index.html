@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>TesterDrag</title>
+  <title>Collaborative image editor</title>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
       <link rel="stylesheet" href="css/style.css">
 
   
@@ -15,13 +16,14 @@
 
 <body>
 
-  <h1>Image Editor with CSS Filters and jQuery</h1>
-		
+  <h1>Collaborative Image Editor</h1>
 <!--Form for collecting image URL -->
 <form id="urlBox" class="center">
-  <input class="url-box" type="url" id="imgUrl" placeholder="Paste any image link and start playing!">
+  <input class="url-box" type="url" id="imgUrl" placeholder="Paste any image link and start comparing">
   <input id="go" type="button" value="Go">
+	<button id="collaborate" onclick="TogetherJS(this); return false;">COLLABORATE</button>
 </form>
+
 
 <hr color="grey">
 
@@ -30,9 +32,8 @@
 </div>
 <!--  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/stadium.jpg"> -->
 <script src="https://togetherjs.com/togetherjs-min.js"></script>
-  
-<button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
 
   
 
