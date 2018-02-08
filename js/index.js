@@ -349,7 +349,7 @@ $(document).on("click", "input[type=reset]", function() {
 });
 
 $('#save_image_locally').click(function(){
-  html2canvas($('#imagesave'), 
+  html2canvas($('#imagesave')[0], 
   {
     onrendered: function (canvas) {
       var a = document.createElement('a');
