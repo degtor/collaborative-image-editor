@@ -206,20 +206,6 @@ function addImage(e) {
       sat.setAttribute("value", 100);
       pTag.appendChild(sat);
 				
-			//var seplabel = document.createElement("label");
-			//seplabel.for = "sepia";
-			//seplabel.innerHTML = "Sepia";
-			//pTag.appendChild(seplabel);
-			
-			//var sep = document.createElement("input");
-      //sep.id = "sepia-" + i.toString();
-			//sep.name = "sepia";
-      //sep.type = "range";
-			//sep.setAttribute("onchange", "editImage(this, null)");
-      //sep.setAttribute("min", 0);
-			//sep.setAttribute("max", 100);
-      //sep.setAttribute("value", 0);
-      //pTag.appendChild(sep);
 			
 			var res = document.createElement("input");
       res.id = "resetButton-" + i.toString();
@@ -232,8 +218,6 @@ function addImage(e) {
 			var removeButton = document.createElement("button");
 		removeButton.setAttribute("class", "removeButton");
 		removeButton.setAttribute("id", "wrap-" + i.toString());
-		//removeButton.setAttribute("onclick", 
-		//													"return confirm('Are you sure?');");
 		removeButton.innerHTML = "Remove";
 		pTag.appendChild(removeButton);
 	}
@@ -362,4 +346,8 @@ $(document).on("click", "input[type=reset]", function() {
 		editImage(sendReset, null);
 	}, 0);
 	
+});
+
+html2canvas(document.querySelector("#capture")).then(canvas => {
+    document.body.appendChild(canvas)
 });
